@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import * as S from "./styles";
 import { FiShoppingCart } from "react-icons/fi";
 import axios from "axios";
+import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 
 interface Product {
   id: number;
@@ -32,10 +33,19 @@ export const ProductCard: React.FC = () => {
       {product.map((elements) => {
         return (
           <S.Card key={elements.id}>
-            <S.ProductImage src={elements.image} alt={elements.title} />
+            <S.ProductImage src={elements.image} alt={elements.description} />
             <S.ProductTitle>{elements.title}</S.ProductTitle>
             <S.ReviewPriceContainer>
-              <S.Review>{elements.rating.rate}</S.Review>
+              <S.Review>
+                {Array.from({ length: 5 }).map((_, index) =>
+                  index < Math.round(elements.rating.rate) ? (
+                    <AiFillStar key={index} />
+                  ) : (
+                    <AiOutlineStar key={index} />
+                  )
+                )}
+                {`(${elements.rating.rate})`}
+              </S.Review>
               <S.Price>{`$${elements.price}`}</S.Price>
             </S.ReviewPriceContainer>
             <S.AddToCardButtonWrapper>

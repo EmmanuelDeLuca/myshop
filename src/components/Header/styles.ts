@@ -24,15 +24,17 @@ export const ButtonWrapper = styled.div`
   display: flex;
   gap: 1rem;
 `;
-
-export const AuthButton = styled.button`
-  //
+interface AuthButtonProps {
+  isLogged: boolean;
+}
+export const AuthButton = styled.button<AuthButtonProps>`
+  //#4769d8
   border: none;
   border-radius: 5px;
   height: 35px;
   padding: 0 1rem;
-  background-color: #4769d8;
-  color: white;
+  background-color: ${(props)=> (props.isLogged ? 'white' :'#4769d8')};
+  color: ${(props)=> (props.isLogged ? 'black' :'white')};
   display: flex;
   align-items: center;
   gap: 0.25rem;
