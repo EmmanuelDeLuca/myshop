@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import * as S from "./styles";
 import { FiShoppingCart } from "react-icons/fi";
-import axios from "axios";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { RootReducer } from "../../redux/root-reducer";
 
-interface Product {
+export interface Product {
   id: number;
   title: string;
   price: number;
@@ -14,49 +15,64 @@ interface Product {
   rating: { rate: number; count: number };
 }
 
-export const ProductCard: React.FC = () => {
-  const [product, setProduct] = useState<Product[]>([]);
+interface ProductCartProps {
+  products: Product;
+}
 
-  useEffect(() => {
-    async function loadProduct() {
-      const response = await axios.get("https://fakestoreapi.com/products");
+export const ProductCard: React.FC<ProductCartProps> = ({ products }) => {
+  const { cart } = useSelector(
+    (rootReducer: RootReducer) => rootReducer.cartReducer
+  );
+  const dispatch = useDispatch();
 
-      const newsProduct = response.data;
-      setProduct(newsProduct);
-    }
+  const isProductOnCart =
+    cart.find((productOnCart) => products.id === productOnCart.id) !==
+    undefined;
 
-    loadProduct();
-  }, []);
+  function handleAddProductToCart() {
+    dispatch({
+      type: "cart/add-product",
+      payload: products,
+    });
+  }
+
+  function handleRemoveProductFromCart() {
+    dispatch({
+      type: "cart/remove-product",
+      payload: products,
+    });
+  }
 
   return (
-    <>
-      {product.map((elements) => {
-        return (
-          <S.Card key={elements.id}>
-            <S.ProductImage src={elements.image} alt={elements.description} />
-            <S.ProductTitle>{elements.title}</S.ProductTitle>
-            <S.ReviewPriceContainer>
-              <S.Review>
-                {Array.from({ length: 5 }).map((_, index) =>
-                  index < Math.round(elements.rating.rate) ? (
-                    <AiFillStar key={index} />
-                  ) : (
-                    <AiOutlineStar key={index} />
-                  )
-                )}
-                {`(${elements.rating.rate})`}
-              </S.Review>
-              <S.Price>{`$${elements.price}`}</S.Price>
-            </S.ReviewPriceContainer>
-            <S.AddToCardButtonWrapper>
-              <S.AddToCardButton>
-                Adicionar ao Carrinho
-                <FiShoppingCart />
-              </S.AddToCardButton>
-            </S.AddToCardButtonWrapper>
-          </S.Card>
-        );
-      })}
-    </>
+    <S.Card key={products.id}>
+      <S.ProductImage src={products.image} alt={products.description} />
+      <S.ProductTitle>{products.title}</S.ProductTitle>
+      <S.ReviewPriceContainer>
+        <S.Review>
+          {Array.from({ length: 5 }).map((_, index) =>
+            index < Math.round(products.rating.rate) ? (
+              <AiFillStar key={index} />
+            ) : (
+              <AiOutlineStar key={index} />
+            )
+          )}
+          {`(${products.rating.rate})`}
+        </S.Review>
+        <S.Price>{`$${products.price}`}</S.Price>
+      </S.ReviewPriceContainer>
+      <S.AddToCardButtonWrapper>
+        {isProductOnCart ? (
+          <S.RemoveFromCartButton onClick={handleRemoveProductFromCart}>
+            Remover do Carrinho
+            <FiShoppingCart />
+          </S.RemoveFromCartButton>
+        ) : (
+          <S.AddToCardButton onClick={handleAddProductToCart}>
+            Adicionar ao Carrinho
+            <FiShoppingCart />
+          </S.AddToCardButton>
+        )}
+      </S.AddToCardButtonWrapper>
+    </S.Card>
   );
 };

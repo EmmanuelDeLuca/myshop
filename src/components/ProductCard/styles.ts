@@ -39,7 +39,6 @@ export const Review = styled.span`
   svg {
     font-size: 1rem;
   }
-
 `;
 
 export const Price = styled.strong``;
@@ -58,6 +57,23 @@ export const AddToCardButton = styled.button`
   height: 40px;
   width: 100%;
   background-color: #1b243c;
+  justify-content: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+  svg {
+    font-size: 1rem;
+  }
+`;
+
+export const RemoveFromCartButton = styled.button`
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  width: 100%;
+  background-color: #869AB8;
   justify-content: center;
   color: white;
   display: flex;
