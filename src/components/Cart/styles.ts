@@ -31,3 +31,22 @@ export const CartProductsList = styled.ul`
 export const CartProductItem = styled.li``;
 
 export const CartTotal = styled.strong``;
+
+export const RemoveCartButton  = styled.button`
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  width: 120px;
+  padding: 0 1rem;
+  background-color: #869AB8;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9rem;
+
+  svg {
+        font-size: 1rem;
+    }
+`;
+
