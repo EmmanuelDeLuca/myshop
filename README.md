@@ -1,46 +1,75 @@
-# Getting Started with Create React App
+# MyShop. 🏪💻
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+O **MyShop** é um projeto de e-commerce desenvolvido para praticar e consolidar estudos em **React**, **TypeScript**, **Styled Components**, e conceitos de gerenciamento de estado com **Redux** e **Redux Toolkit**, além de consumir APIs externas para simular uma loja virtual funcional. A aplicação consome a API pública [Fake Store API](https://fakestoreapi.com/) para exibir produtos e criar uma experiência completa de navegação e compra.
 
-## Available Scripts
+## Objetivo do Projeto
 
-In the project directory, you can run:
+O objetivo principal deste projeto é:
+- Praticar a criação de aplicações modernas utilizando **React** e **TypeScript**.
+- Estilizar interfaces dinâmicas com **Styled Components**.
+- Gerenciar o estado global da aplicação com **Redux** e **Redux Toolkit**.
+- Trabalhar com o consumo de uma API para integrar dados reais no projeto.
+- Implementar funcionalidades de e-commerce, como:
+  - Exibição de produtos.
+  - Adição e remoção de produtos no carrinho de compras.
+  - Cálculo do valor total dos itens no carrinho.
 
-### `yarn start`
+## Funcionalidades
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **Exibição de Produtos**:
+   - Mostra todos os produtos da [Fake Store API](https://fakestoreapi.com/products), exibindo informações como:
+     - Nome do produto.
+     - Imagem ilustrativa.
+     - Preço.
+     - Avaliação.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. **Carrinho de Compras**:
+   - Permite adicionar produtos ao carrinho clicando no card do produto desejado.
+   - Gerencia o estado do carrinho utilizando **Redux Toolkit**.
+   - Exibe uma lista de todos os produtos adicionados, mostrando o nome e o preço de cada um.
+   - Oferece a possibilidade de remover produtos do carrinho:
+     - Pelo botão de remover abaixo do produto no carrinho.
+     - Diretamente no card do produto.
 
-### `yarn test`
+3. **Cálculo do Valor Total**:
+   - Exibe o valor total da compra com base nos produtos adicionados ao carrinho.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. **Estilização Customizada**:
+   - Utiliza **Styled Components** para criar estilos dinâmicos, modulares e reutilizáveis.
 
-### `yarn build`
+## Tecnologias Utilizadas
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **React**: Biblioteca JavaScript para criação de interfaces de usuário.
+- **TypeScript**: Superset de JavaScript que adiciona tipos estáticos ao código.
+- **Styled Components**: Biblioteca para estilização de componentes React utilizando CSS-in-JS.
+- **Redux**: Biblioteca para gerenciamento de estado global.
+- **Redux Toolkit**: Ferramenta oficial da equipe Redux que facilita o uso e implementação de Redux.
+- **Fake Store API**: Fonte de dados para simulação de um e-commerce.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Como Rodar Localmente
+1. **Clone o repositório:**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   git clone https://github.com/EmmanuelDeLuca/myshop.git
+   
+2. **Acessando o diretorio do projeto:**
+Navegue até o diretório do projeto
+    ```bash
+   cd myshop 
 
-### `yarn eject`
+3. **Instale as dependências:**
+ Execute o seguinte comando para instalar as dependências:
+   ```bash
+   yarn install 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Rodando o aplicativo:**
+Após instalar as dependências, rode o seguinte comando para iniciar o servidor de desenvolvimento:
+   ```bash
+   yarn start 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. **Acesse o projeto:**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+   ```bash
+   http://localhost:3000
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
