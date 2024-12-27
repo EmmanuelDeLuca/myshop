@@ -4,6 +4,7 @@ import { FiShoppingCart } from "react-icons/fi";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { RootReducer } from "../../redux/root-reducer";
+import { addProduct, removeProduct } from "../../redux/Cart/cart-slice";
 
 export interface Product {
   id: number;
@@ -30,17 +31,11 @@ export const ProductCard: React.FC<ProductCartProps> = ({ products }) => {
     undefined;
 
   function handleAddProductToCart() {
-    dispatch({
-      type: "cart/add-product",
-      payload: products,
-    });
+    dispatch(addProduct(products))
   }
 
   function handleRemoveProductFromCart() {
-    dispatch({
-      type: "cart/remove-product",
-      payload: products,
-    });
+    dispatch(removeProduct(products))
   }
 
   return (
