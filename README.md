@@ -37,6 +37,12 @@ O objetivo principal deste projeto é:
 4. **Estilização Customizada**:
    - Utiliza **Styled Components** para criar estilos dinâmicos, modulares e reutilizáveis.
 
+## Testes Unitários
+
+- **Testes no Carrinho de Compras**:
+  Foram implementados testes unitários para garantir o correto funcionamento das funcionalidades relacionadas ao carrinho de compras.
+
+
 ## Tecnologias Utilizadas
 
 - **React**: Biblioteca JavaScript para criação de interfaces de usuário.
@@ -45,7 +51,7 @@ O objetivo principal deste projeto é:
 - **Redux**: Biblioteca para gerenciamento de estado global.
 - **Redux Toolkit**: Ferramenta oficial da equipe Redux que facilita o uso e implementação de Redux.
 - **Fake Store API**: Fonte de dados para simulação de um e-commerce.
-
+- **Jest e React Testing Library**: Bibliotecas utilizadas para a implementação de testes unitários.
 ## Como Rodar Localmente
 1. **Clone o repositório:**
 
